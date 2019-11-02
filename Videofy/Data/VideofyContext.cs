@@ -8,7 +8,7 @@ using Videofy.Models;
 
 namespace Videofy.Data
 {
-    public class VideofyContext : DbContext
+    public class VideofyContext : IdentityDbContext
     {
         public VideofyContext(DbContextOptions<VideofyContext> options)
             : base(options)

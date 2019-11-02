@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Videofy.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Videofy
 {
@@ -26,6 +27,10 @@ namespace Videofy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Add Identity service
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<VideofyContext>();   // We specify the DbContext we are using.
 
             services.AddDbContext<VideofyContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -51,6 +56,7 @@ namespace Videofy
 
             app.UseAuthorization();
 
+            app.UseAuthentication(); // ADD Authentication middleware for Identity Library
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
