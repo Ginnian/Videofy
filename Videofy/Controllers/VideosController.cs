@@ -22,18 +22,43 @@ namespace Videofy.Controllers
 
         // GET: Videos
         
-        public async Task<IActionResult> Index(string searchString,bool notUsed)
+        public async Task<IActionResult> Index(string movieGenre,string searchString)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Videos
+                                            orderby m.Genre
+                                            select m.Genre;
+
             var videos = from m in _context.Videos
                          select m;
+
 
             if (!string.IsNullOrEmpty(searchString))
             {
                 videos = videos.Where(s => s.Title.Contains(searchString));
             }
 
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                videos = videos.Where(x => x.Genre == movieGenre);
+            }
 
-            return View(await videos.ToListAsync());
+            var movieGenreVM = new VideoGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Videos = await videos.ToListAsync()
+            };
+
+            return View(movieGenreVM);
+
+
+            //if (!string.IsNullOrEmpty(searchString))
+            //{
+            //    videos = videos.Where(s => s.Title.Contains(searchString));
+            //}
+
+
+            //return View(await videos.ToListAsync());
         }
 
         // GET: Videos/Details/5
