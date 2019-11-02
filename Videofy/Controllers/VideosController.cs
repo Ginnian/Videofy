@@ -21,9 +21,19 @@ namespace Videofy.Controllers
         }
 
         // GET: Videos
-        public async Task<IActionResult> Index()
+        
+        public async Task<IActionResult> Index(string searchString,bool notUsed)
         {
-            return View(await _context.Videos.ToListAsync());
+            var videos = from m in _context.Videos
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                videos = videos.Where(s => s.Title.Contains(searchString));
+            }
+
+
+            return View(await videos.ToListAsync());
         }
 
         // GET: Videos/Details/5
