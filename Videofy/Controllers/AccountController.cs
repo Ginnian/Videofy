@@ -93,13 +93,13 @@ namespace Videofy.Controllers
         {
             if (ModelState.IsValid) // check model object is valid
             {
-                // SignIn With password
+                // SignIn With email and password
                 var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,false);
 
                 // Check if user was Created successfully
                 if (result.Succeeded)
                 {
-                    // Redirect after Sign In
+                    // Redirect after Sign-In
                     return RedirectToAction("Index", "Home");   // back to landing page
                 }
 
