@@ -28,7 +28,18 @@ namespace Videofy.Controllers
             this.signInManager = signInManager;
         }
 
-        // GET: /<controller>/
+
+        // Logout POST
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");   // Action, Controller
+        }
+
+
+        // Register GET: /<controller>/
         [HttpGet]
         public IActionResult Register()
         {
@@ -36,7 +47,7 @@ namespace Videofy.Controllers
         }
 
 
-        // POST: /<controller>/
+        // Register POST: /<controller>/
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -55,7 +66,7 @@ namespace Videofy.Controllers
                     await signInManager.SignInAsync(user, isPersistent: false);
 
                     // Redirect after Sign In
-                    RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");   // back to landing page
                 }
 
                 // If Create is NOT successful
@@ -63,6 +74,36 @@ namespace Videofy.Controllers
                 {
                     ModelState.AddModelError("", error.Description);    // Error description will show
                 }
+            }
+
+            return View(model); // if NOT valid, Rerender register view and display the errors
+        }
+
+
+        // Login GET: /<controller>/
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // Login POST: /<controller>/
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid) // check model object is valid
+            {
+                // SignIn With password
+                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,false);
+
+                // Check if user was Created successfully
+                if (result.Succeeded)
+                {
+                    // Redirect after Sign In
+                    return RedirectToAction("Index", "Home");   // back to landing page
+                }
+
+                ModelState.AddModelError(string.Empty, "Ivalid Login Attempt"); // If Sign-in is NOT successful
             }
 
             return View(model); // if NOT valid, Rerender register view and display the errors
