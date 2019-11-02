@@ -103,7 +103,7 @@ namespace Videofy.Controllers
                     return RedirectToAction("Index", "Home");   // back to landing page
                 }
 
-                ModelState.AddModelError(string.Empty, "Ivalid Login Attempt"); // If Sign-in is NOT successful
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt"); // If Sign-in is NOT successful
             }
 
             return View(model); // if NOT valid, Rerender register view and display the errors

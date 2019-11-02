@@ -29,8 +29,10 @@ namespace Videofy
             services.AddControllersWithViews();
 
             // Add Identity service
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<VideofyContext>();   // We specify the DbContext we are using.
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+            }).AddEntityFrameworkStores<VideofyContext>();   // We specify the DbContext we are using.
 
             services.AddDbContext<VideofyContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
