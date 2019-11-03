@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Videofy.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Videofy
 {
@@ -24,6 +27,15 @@ namespace Videofy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Add Identity service
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+            }).AddEntityFrameworkStores<VideofyContext>();   // We specify the DbContext we are using.
+
+            services.AddDbContext<VideofyContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +58,7 @@ namespace Videofy
 
             app.UseAuthorization();
 
+            app.UseAuthentication(); // ADD Authentication middleware for Identity Library
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
