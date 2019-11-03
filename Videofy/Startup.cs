@@ -8,9 +8,14 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+ paolo_v4_login_logout
 using Microsoft.EntityFrameworkCore;
 using Videofy.Data;
 using Microsoft.AspNetCore.Identity;
+
+using Videofy.Data;
+using Microsoft.EntityFrameworkCore;
+ master
 
 namespace Videofy
 {
@@ -28,6 +33,7 @@ namespace Videofy
         {
             services.AddControllersWithViews();
 
+ paolo_v4_login_logout
             // Add Identity service
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
@@ -36,6 +42,9 @@ namespace Videofy
 
             services.AddDbContext<VideofyContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<MvcMovieContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+ master
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,8 +67,12 @@ namespace Videofy
 
             app.UseAuthorization();
 
+ paolo_v4_login_logout
             app.UseAuthentication(); // ADD Authentication middleware for Identity Library
             app.UseEndpoints(endpoints =>
+
+            app.UseEndpoints(endpoints => //routing format
+ master
             {
                 endpoints.MapControllerRoute(
                     name: "default",
