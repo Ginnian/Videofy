@@ -1,0 +1,48 @@
+﻿@page
+@model Videofy.Views.Cart.IndexModel
+
+<h2>Your Rental Cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">SubPrice</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+            <tr>
+                <td class="text-center">Quantity</td>
+                <td class="text-left">Movie.Title</td>
+                <td class="text-right">Movie.Price.ToString("c")</td>
+                <td class="text-right">Quantity * line.Movie.Price).ToString("c")</td>
+
+                @*Remove*@
+                <td>
+                    <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="MovieId" value="MovieId"/>
+                        <input type ="hidden" name="returnUrl" value="returnUrl"/>
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                </td>
+
+            </tr>
+        
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">TotalValue().ToString("c")</td>
+        </tr>
+    </tfoot>
+    </table>
+
+<div class="text-center"><a class="btn btn-primary" href="ReturnUrl">Continune</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">checkout</a>
+    </div>
+@{
+}

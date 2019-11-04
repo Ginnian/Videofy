@@ -28,6 +28,25 @@ namespace Videofy.Models
         [Required]  //Field must have a genre
         [StringLength(30)] //Genre must be maximum 30 characters
         public string Genre { get; set; } //Get or set movie genre
+
+        public static Movie[] GetMovies()
+        {
+            Movie MyLife = new Movie
+            {
+                Title = "My Life",
+                ReleaseDate = DateTime.Parse("1991-1-18"),
+                Genre = "Comedy",
+                Price = 7.99M
+            };
+            Movie FightClub = new Movie
+            {
+                Title = "Fight Club",
+                ReleaseDate = DateTime.Parse("1999-4-06"),
+                Genre = "Drama",
+                Price = 6.99M
+            };
+            return new Movie[] { MyLife, FightClub, null };
+        }
     }
 
 }

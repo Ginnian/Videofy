@@ -172,5 +172,16 @@ namespace Videofy.Controllers
         {
             return _context.Movie.Any(e => e.Id == id);
         }
+
+        private IMovieRepository repository;
+
+        public MoviesController(IMovieRepository repo)
+        {
+            repository = repo;
+        }
+
+        public ViewResult List() => View(repository.Movies);
+
+
     }
 }
