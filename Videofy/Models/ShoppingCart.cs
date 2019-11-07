@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Videofy.Models
 {
-    public class ShoppingCartItem
+    public class ShoppingCart
     {
-        public int ShoppingCartItemId { get; set; }
-        public Movie Movie { get; set; }
         public string ShoppingCartId { get; set; }
+        public List<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }
