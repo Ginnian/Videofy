@@ -38,9 +38,9 @@ namespace Videofy.Controllers
 
 
         // ADD to Cart:
-        public RedirectToActionResult AddToShoppingCart(int drinkId)
+        public RedirectToActionResult AddToShoppingCart(int movieId)
         {
-            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == drinkId);
+            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == movieId);
             if (selectedMovie != null)
             {
                 _shoppingCart.AddToCart(selectedMovie);
@@ -50,9 +50,9 @@ namespace Videofy.Controllers
 
 
         // REMOVE from Cart:
-        public RedirectToActionResult RemoveFromShoppingCart(int drinkId)
+        public RedirectToActionResult RemoveFromShoppingCart(int movieId)
         {
-            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == drinkId);
+            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == movieId);
             if (selectedMovie != null)
             {
                 _shoppingCart.RemoveFromCart(selectedMovie);
