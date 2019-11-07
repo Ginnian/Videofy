@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Videofy.Models;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Http;
+using Videofy.Models.Mock;
+using Videofy.Models.Interface;
 
 namespace Videofy
 {
@@ -33,6 +35,11 @@ namespace Videofy
             services.AddDbContext<MvcMovieContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
 
+
+            //------ Interface for Repository
+            services.AddTransient<IMoviesRepository, MockMoviesRepository>();
+
+            //-----------------------------------
             services.AddHttpContextAccessor();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
