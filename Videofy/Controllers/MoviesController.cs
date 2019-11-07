@@ -7,17 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Videofy.Data;
 using Videofy.Models;
+using Videofy.Models.Interface;
 
 namespace Videofy.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
+        private readonly IMoviesRepository _moviesRepository;
 
-        public MoviesController(MvcMovieContext context)
+        public MoviesController(MvcMovieContext context, IMoviesRepository moviesRepository)
         {
             _context = context;
+            _moviesRepository = moviesRepository;
         }
+
+
+        public ViewResult List()
+        {
+            var movies = _moviesRepository.Movies;
+            return View(movies);
+        }
+
 
         // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString)

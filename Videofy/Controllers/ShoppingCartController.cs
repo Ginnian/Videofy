@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Videofy.Data;
 using Videofy.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,9 +13,11 @@ namespace Videofy.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly ShoppingCart _shoppingCart;
-        public ShoppingCartController(ShoppingCart shoppingCart)
+        private readonly MvcMovieContext _context;
+        public ShoppingCartController(ShoppingCart shoppingCart, MvcMovieContext context )
         {
             _shoppingCart = shoppingCart;
+            _context = context;
         }
 
 
@@ -28,12 +31,34 @@ namespace Videofy.Controllers
             {
                 ShoppingCart = _shoppingCart,
                 ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
-            }
+            };
 
             return View(sCVM);
         }
 
-        public RedirectToActionResult 
+
+        // ADD to Cart:
+        public RedirectToActionResult AddToShoppingCart(int drinkId)
+        {
+            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == drinkId);
+            if (selectedMovie != null)
+            {
+                _shoppingCart.AddToCart(selectedMovie);
+            }
+            return RedirectToAction("Index");
+        }
+
+
+        // REMOVE from Cart:
+        public RedirectToActionResult RemoveFromShoppingCart(int drinkId)
+        {
+            var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == drinkId);
+            if (selectedMovie != null)
+            {
+                _shoppingCart.RemoveFromCart(selectedMovie);
+            }
+            return RedirectToAction("Index");
+        }
 
         // GET: /<controller>/
         //public IActionResult Index()
