@@ -36,6 +36,7 @@ namespace Videofy
                 options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
 
 
+            services.AddMvc();
             //------ Interface for Repository
             services.AddTransient<IMoviesRepository, MockMoviesRepository>();
 
