@@ -14,19 +14,26 @@ namespace Videofy.Controllers
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
-        private readonly IMoviesRepository _moviesRepository;
 
-        public MoviesController(MvcMovieContext context, IMoviesRepository moviesRepository)
+        //private readonly IMoviesRepository _moviesRepository;
+
+        //public MoviesController(MvcMovieContext context, IMoviesRepository moviesRepository)
+        //{
+        //    _context = context;
+        //    _moviesRepository = moviesRepository;
+        //}
+
+
+        //public ViewResult List()
+        //{
+        //    var movies = _moviesRepository.Movies;
+        //    return View(movies);
+        //}
+
+
+        public MoviesController(MvcMovieContext context)
         {
             _context = context;
-            _moviesRepository = moviesRepository;
-        }
-
-
-        public ViewResult List()
-        {
-            var movies = _moviesRepository.Movies;
-            return View(movies);
         }
 
 
