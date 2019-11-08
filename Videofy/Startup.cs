@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Http;
 using Videofy.Models.Mock;
 using Videofy.Models.Interface;
+using Videofy.Models.Repositories;
 
 namespace Videofy
 {
@@ -37,8 +38,9 @@ namespace Videofy
 
 
             services.AddMvc();
-            //------ Interface for Repository
+            //------ Interface and Repository
             services.AddTransient<IMoviesRepository, MockMoviesRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             //-----------------------------------
             services.AddHttpContextAccessor();
