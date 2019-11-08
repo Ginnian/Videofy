@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 @*<th>Selected amount</th>*@
-                <th>Drink</th>
+                <th>Movie</th>
                 <th class="text-right">Price</th>
                 <th class="text-right">Subtotal</th>
                 <th></th>
@@ -24,7 +24,11 @@
                     <td class="text-right">
                         @((line.Movie.Price).ToString("c"))
                     </td>
-                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-drinkId="@line.Movie.Id"></a></td>
+                    <td class="text-center">
+                    <a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-movieId="@line.Movie.Id">
+                        <i class="fas fa-times text-danger remove"></i>
+                    </a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -40,7 +44,8 @@
 
     <div class="text-right">
         <div class="btn-group ">
-            <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
+            <a class="btn btn-info mr-1" asp-controller="Movies" asp-action="Index">Back To Movies</a>
+            <a class="btn btn-success ml-1" asp-controller="Order" asp-action="Checkout">Check Out</a>
             @*<a class="btn-group">
                 <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Add more drinks<span class="caret"></span>

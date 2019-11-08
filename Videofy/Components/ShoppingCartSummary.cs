@@ -19,8 +19,8 @@ namespace Videofy.Components
         
         public IViewComponentResult Invoke()    // IViewComponentResult used for reusable component that returns a view
         {
-            var items = new List<ShoppingCartItem>() { new ShoppingCartItem(), new ShoppingCartItem() }; // Dummy items to test item count in cart
-            //var items = _shoppingCart.GetShoppingCartItems();    // assign GetShoppingCartItems() method return value into this variable
+            //var items = new List<ShoppingCartItem>() { new ShoppingCartItem(), new ShoppingCartItem() }; // Dummy items to test item count in cart
+            var items = _shoppingCart.GetShoppingCartItems();    // assign GetShoppingCartItems() method return value into this variable
             _shoppingCart.ShoppingCartItems = items;
 
             var shoppingCartViewModel = new ShoppingCartViewModel   // Instantiate new Object and initialise poperties

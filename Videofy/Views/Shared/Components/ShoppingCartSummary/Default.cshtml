@@ -3,14 +3,11 @@
 @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
 {
     <li class="nav-item">
-        <a asp-controller="ShoppingCart>">
-            @*<span class="glyphicon glyphicon-shopping-cart"></span>*@
-            <p>
-                Your Cart: <span id="cart-status">
-                    @Model.ShoppingCart.ShoppingCartItems.Count
-                </span>
-            </p>
-
+        <i class="fas fa-shopping-cart"></i>
+        <a asp-controller="ShoppingCart">
+            <span id="cart-status">
+                @Model.ShoppingCart.ShoppingCartItems.Count
+            </span>
         </a>
     </li>
 }
