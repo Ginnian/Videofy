@@ -33,7 +33,6 @@ namespace Videofy.Models
         public string Email { get; set; }
 
         [BindNever]
-        [Range(1, 100)] //price must be between $1 and $100
         [DataType(DataType.Currency)] //Format input to currency data type
         [Column(TypeName = "decimal(18, 2)")] //Round decimal to 2 places
         public decimal OrderTotal { get; set; } //  Ordertotal Price

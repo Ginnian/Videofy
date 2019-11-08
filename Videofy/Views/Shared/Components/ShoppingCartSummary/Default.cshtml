@@ -4,7 +4,7 @@
 {
     <li class="nav-item">
         <i class="fas fa-shopping-cart"></i>
-        <a asp-controller="ShoppingCart">
+        <a asp-controller="ShoppingCart" asp-action="Index">
             <span id="cart-status">
                 @Model.ShoppingCart.ShoppingCartItems.Count
             </span>
