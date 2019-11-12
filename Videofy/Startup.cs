@@ -38,7 +38,7 @@ namespace Videofy
                 options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
 
 
-            //------ Identityfor Login/Register
+            //------ Identity for Login/Register
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<MvcMovieContext>();
             //----------------------------------
