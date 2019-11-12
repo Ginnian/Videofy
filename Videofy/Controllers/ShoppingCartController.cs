@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Videofy.Data;
 using Videofy.Models;
@@ -38,6 +39,7 @@ namespace Videofy.Controllers
 
 
         // ADD to Cart:
+        [Authorize]
         public RedirectToActionResult AddToShoppingCart(int movieId)
         {
             var selectedMovie = _context.Movie.FirstOrDefault(p => p.Id == movieId);
