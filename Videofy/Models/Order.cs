@@ -12,6 +12,7 @@ namespace Videofy.Models
     {
         [BindNever]
         public int OrderId { get; set; }
+
         public List<OrderDetail> OrderLines { get; set; }
 
 
@@ -32,13 +33,15 @@ namespace Videofy.Models
             ErrorMessage = "The email address is not entered in a correct format")]
         public string Email { get; set; }
 
+        //[DataType(DataType.Currency)] //Format input to currency data type
+        //[Column(TypeName = "decimal(18, 2)")] //Round decimal to 2 places
         [BindNever]
-        [DataType(DataType.Currency)] //Format input to currency data type
-        [Column(TypeName = "decimal(18, 2)")] //Round decimal to 2 places
+        [ScaffoldColumn(false)]
         public decimal OrderTotal { get; set; } //  Ordertotal Price
 
+        //[DataType(DataType.Date)]
         [BindNever]
-        [DataType(DataType.Date)]       // Check input is type date.
+        [ScaffoldColumn(false)]// Check input is type date.
         public DateTime OrderPlaced { get; set; } // Date the order was placed.
     }
 }

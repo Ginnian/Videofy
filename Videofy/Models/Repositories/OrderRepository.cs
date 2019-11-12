@@ -25,6 +25,7 @@ namespace Videofy.Models.Repositories
 
         public void CreateOrder(Order order)
         {
+            order.OrderPlaced = DateTime.Now;
             _mvcMovieContext.Orders.Add(order);
 
             var shoppingCartItems = _shoppingCart.ShoppingCartItems;
@@ -33,8 +34,8 @@ namespace Videofy.Models.Repositories
             {
                 var orderDetail = new OrderDetail()
                 {
-                    MovieId = item.Movie.Id,
                     OrderId = order.OrderId,
+                    MovieId = item.Movie.Id,
                     Price = item.Movie.Price,
                 };
 
