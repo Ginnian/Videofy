@@ -31,6 +31,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @await Component.InvokeAsync("ShoppingCartSummary")
+                        @await Html.PartialAsync("LoginPartial")
                     </ul>
                 </div>
             </div>

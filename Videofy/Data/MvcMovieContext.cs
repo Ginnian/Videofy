@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Videofy.Models;
 
 namespace Videofy.Data
 {
-    public class MvcMovieContext : DbContext
+    public class MvcMovieContext : IdentityDbContext<IdentityUser>
     {
         public MvcMovieContext (DbContextOptions<MvcMovieContext> options) : base(options)
         {

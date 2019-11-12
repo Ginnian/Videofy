@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using Videofy.Models.Mock;
 using Videofy.Models.Interface;
 using Videofy.Models.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace Videofy
 {
@@ -37,6 +38,10 @@ namespace Videofy
                 options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
 
 
+            //------ Identityfor Login/Register
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<MvcMovieContext>();
+            //----------------------------------
             services.AddMvc();
             //------ Interface and Repository
             services.AddTransient<IMoviesRepository, MockMoviesRepository>();
@@ -70,6 +75,8 @@ namespace Videofy
             app.UseSession();
             app.UseRouting();
 
+            //
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => //routing format
