@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Videofy.Models;
 using Videofy.Models.Interface;
@@ -28,7 +29,7 @@ namespace Videofy.Controllers
         }
 
 
-        // GET: /<controller>/
+        // POST: /<controller>/
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
@@ -43,7 +44,7 @@ namespace Videofy.Controllers
 
             if (ModelState.IsValid)
             {
-                _orderRepository.CreateOrder(order);
+                //_orderRepository.CreateOrder(order);
                 _shoppingCart.ClearCart();
 
                 return RedirectToAction("CheckoutComplete");

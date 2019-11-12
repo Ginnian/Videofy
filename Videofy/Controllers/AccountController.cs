@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Videofy.Models;
@@ -60,6 +61,8 @@ namespace Videofy.Controllers
 
                     return Redirect(loginViewModel.ReturnUrl);
                 }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt"); // If Sign-in is NOT successful
             }
             //  If user DOES NOT exist.
             ModelState.AddModelError("", "Username/Password not found.");
@@ -80,12 +83,25 @@ namespace Videofy.Controllers
         {
             if (ModelState.IsValid)
             {
+                /// create a new IdentityUser object, 
+                /// and copy the data from the argument's model object 
+                /// 
                 var user = new IdentityUser() { UserName = loginViewModel.UserName };
                 var result = await _userManager.CreateAsync(user, loginViewModel.Password);
 
                 if (result.Succeeded)
                 {
+                    // Sign In the User
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
                     return RedirectToAction("Index", "Home");
+                }
+
+                /// If Create is NOT successful
+                ///   display ALL error message and Required criteria for validation
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);    // Error description will show
                 }
             }
 
@@ -95,6 +111,7 @@ namespace Videofy.Controllers
 
         // POST: Logout
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
