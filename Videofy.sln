@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videofy", "Videofy\Videofy.csproj", "{8AEE90BE-3415-48CD-938A-EDAA776F55A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndLoadTestProject", "WebAndLoadTestProject\WebAndLoadTestProject.csproj", "{4E126972-29F5-4C75-A148-34C71D99A6EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BB59E743-4667-42DD-B295-DC4DFFDB95DB}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{8AEE90BE-3415-48CD-938A-EDAA776F55A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AEE90BE-3415-48CD-938A-EDAA776F55A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AEE90BE-3415-48CD-938A-EDAA776F55A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E126972-29F5-4C75-A148-34C71D99A6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E126972-29F5-4C75-A148-34C71D99A6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E126972-29F5-4C75-A148-34C71D99A6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E126972-29F5-4C75-A148-34C71D99A6EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

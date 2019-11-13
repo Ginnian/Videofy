@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest2" Id="bcdf1d73-9d13-4567-8f72-7f8ac3085e4a" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest2.b55805e4-b843-4697-b017-124093d31808.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="4ba5b534-c370-4517-8c62-5107bf74928d" Version="1.1" Url="https://localhost:44396/" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Account/Register" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="dcb0885e-2566-40a2-b88b-029646e0c30d" Version="1.1" Url="https://localhost:44396/Movies" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="fb414f5a-fcb6-40d9-aa3b-14bad95e1012" Version="1.1" Url="https://localhost:44396/Account/Register" ThinkTime="23" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Movies" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam2.__RequestVerificationToken" DisplayName="Extract Text" Description="Extract text from the response and place it into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; /&gt;&lt;" />
+            <RuleParameter Name="Index" Value="1" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="de9d66b8-d3cd-48b1-b7fb-094b5542301a" Version="1.1" Url="https://localhost:44396/Account/Register" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/" ReportingName="" IgnoreHttpStatusCode="False">
+      <FormPostHttpBody>
+        <FormPostParameter Name="UserName" Value="ginnian" RecordedValue="ginnian" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Password" Value="P@ssw0rd" RecordedValue="P@ssw0rd" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{FormPostParam2.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw_-qnOSgGTJycQnYus26ZM2NHthYNO2YFCAMsHFhfRbBJPh06_kphF6q3nCnZ0Gvb6_6iBOTX8hf0AMGdJrQCkic94Q5ilM_ClksioUHcPNFCSMUcNDDN_MKYL3-o8tJf5U" CorrelationBinding="{{FormPostParam2.__RequestVerificationToken}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="6d90ab10-5c23-4251-a5c7-97db870f6890" Version="1.1" Url="https://localhost:44396/Account/Register" ThinkTime="3" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Account/Register" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="UserName" Value="ginnian" RecordedValue="ginnian" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Password" Value="P@ssw0rd" RecordedValue="P@ssw0rd" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw_-qnOSgGTJycQnYus26ZM2NHthYNO2YFCAMsHFhfRbBJPh06_kphF6q3nCnZ0Gvb6_6iBOTX8hf0AMGdJrQCkic94Q5ilM_ClksioUHcPNFCSMUcNDDN_MKYL3-o8tJf5U" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="fa016dbd-17b8-4b60-9878-ca106be0d68c" Version="1.1" Url="https://localhost:44396/Movies" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="dcc07372-f329-4d54-ac54-29d3b15093da" Version="1.1" Url="https://localhost:44396/Movies/Details/17" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Movies" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="521c6fb5-78d3-4b8d-ac15-533e70422048" Version="1.1" Url="https://localhost:44396/Movies" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Movies/Details/17" />
+      </Headers>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="QueryStringParam10.movieId" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="?movieId=" />
+            <RuleParameter Name="EndsWith" Value="&quot;" />
+            <RuleParameter Name="Index" Value="0" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="1e976eb7-0565-46a1-971d-620b1e074ace" Version="1.1" Url="https://localhost:44396/ShoppingCart/AddToShoppingCart" ThinkTime="4" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/ShoppingCart" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Movies" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="movieId" Value="17" RecordedValue="17" CorrelationBinding="{{QueryStringParam10.movieId}}" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="30923f21-3073-413e-82cd-c4c7b52d8fd8" Version="1.1" Url="https://localhost:44396/Order/Checkout" ThinkTime="14" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/ShoppingCart" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="47420962-f852-44b6-94ff-890ec86f1b8a" Version="1.1" Url="https://localhost:44396/Order/Checkout" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/Order/CheckoutComplete" ReportingName="" IgnoreHttpStatusCode="False">
+      <FormPostHttpBody>
+        <FormPostParameter Name="FirstName" Value="virginia" RecordedValue="virginia" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="LastName" Value="something" RecordedValue="something" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Email" Value="virginia@something.com" RecordedValue="virginia@something.com" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw__Q-3HIPFrIxOEZBYE_T2R_7RR4xvdpA4XK3f8XZ4mjpVZukBQqoaPFtyvrlk_f1pIux5hYV55cKCjHMKXODg2qkgS5xkqsmZookH5zOlUGdlnuRCCVlCaX4bEwOClT_jDcGosKk2EQm07JPAy7QTPjkRZf2gMoWu8EZKllwObJnA" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="ca89a453-fc31-44d9-a08a-477ea12a4156" Version="1.1" Url="https://localhost:44396/Order/Checkout" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/Order/CheckoutComplete" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Order/Checkout" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam3.__RequestVerificationToken" DisplayName="Extract Text" Description="Extract text from the response and place it into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; /&gt;&lt;" />
+            <RuleParameter Name="Index" Value="0" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="FirstName" Value="virginia" RecordedValue="virginia" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="LastName" Value="something" RecordedValue="something" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Email" Value="virginia@something.com" RecordedValue="virginia@something.com" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw__Q-3HIPFrIxOEZBYE_T2R_7RR4xvdpA4XK3f8XZ4mjpVZukBQqoaPFtyvrlk_f1pIux5hYV55cKCjHMKXODg2qkgS5xkqsmZookH5zOlUGdlnuRCCVlCaX4bEwOClT_jDcGosKk2EQm07JPAy7QTPjkRZf2gMoWu8EZKllwObJnA" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="49da9663-0a48-42b5-9bba-56d1d1f25910" Version="1.1" Url="https://localhost:44396/Account/Logout" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/" ReportingName="" IgnoreHttpStatusCode="False">
+      <FormPostHttpBody>
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{FormPostParam3.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw_9USfBYxpiG8fSY5H79qfCcF6d5q2DHiSdZY_c-Z4o1GG2tQer2vQD99qEt3m1QVC37fCIDEKkMZiBE9ZtZTsenlMQkZ2oVe4uKGB1ylVFypuRZFs-CLyCXq8tvTG2LVBKqeOZgqp4jpadgE5TSeGVryd_82bIUP_cTphXfid5aiw" CorrelationBinding="{{FormPostParam3.__RequestVerificationToken}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="adc79086-6c42-47d2-b2e1-dc43a144ec10" Version="1.1" Url="https://localhost:44396/Account/Logout" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://localhost:44396/" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="https://localhost:44396/Order/CheckoutComplete" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8MAzZUBXK19OuxSiQbtOw_9USfBYxpiG8fSY5H79qfCcF6d5q2DHiSdZY_c-Z4o1GG2tQer2vQD99qEt3m1QVC37fCIDEKkMZiBE9ZtZTsenlMQkZ2oVe4uKGB1ylVFypuRZFs-CLyCXq8tvTG2LVBKqeOZgqp4jpadgE5TSeGVryd_82bIUP_cTphXfid5aiw" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+  </Items>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>
